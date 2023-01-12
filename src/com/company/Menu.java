@@ -9,20 +9,20 @@ public class Menu {
     public static void menu() {
         TextEditor textEditor = new TextEditor();
         int choice;
-        System.out.println("1. Дописать строку");
-        System.out.println("2. Вставить строку по индексу");
-        System.out.println("3. Копировать часть строки в буфер");
-        System.out.println("4. Удалить часть строки");
-        System.out.println("5. Вставить строку по индексу из буфера");
-        System.out.println("6. Вырезать часть строки в буфер");
-        System.out.println("7. Выйти из программы");
+        System.out.println("1. Р”РѕРїРёСЃР°С‚СЊ СЃС‚СЂРѕРєСѓ");
+        System.out.println("2. Р’СЃС‚Р°РІРёС‚СЊ СЃС‚СЂРѕРєСѓ РїРѕ РёРЅРґРµРєСЃСѓ");
+        System.out.println("3. РљРѕРїРёСЂРѕРІР°С‚СЊ С‡Р°СЃС‚СЊ СЃС‚СЂРѕРєРё РІ Р±СѓС„РµСЂ");
+        System.out.println("4. РЈРґР°Р»РёС‚СЊ С‡Р°СЃС‚СЊ СЃС‚СЂРѕРєРё");
+        System.out.println("5. Р’СЃС‚Р°РІРёС‚СЊ СЃС‚СЂРѕРєСѓ РїРѕ РёРЅРґРµРєСЃСѓ РёР· Р±СѓС„РµСЂР°");
+        System.out.println("6. Р’С‹СЂРµР·Р°С‚СЊ С‡Р°СЃС‚СЊ СЃС‚СЂРѕРєРё РІ Р±СѓС„РµСЂ");
+        System.out.println("7. Р’С‹Р№С‚Рё РёР· РїСЂРѕРіСЂР°РјРјС‹");
         while(true){
             while(true) {
                 try {
                     choice=checkMenuInput();
                     break;
                 } catch (NumberFormatException e) {
-                    System.out.println("Введено некорректное значение");
+                    System.out.println("Р’РІРµРґРµРЅРѕ РЅРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ");
                 }
             }
             switch(choice) {
@@ -33,7 +33,7 @@ public class Menu {
                 case 5 -> textEditor.paste();
                 case 6 -> textEditor.cut();
                 case 7 -> System.exit(0);
-                default -> System.out.println("Вариант не существует");
+                default -> System.out.println("Р”Р°РЅРЅС‹Р№ РІР°СЂРёР°РЅС‚ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");
             }
             textEditor.printString();
         }

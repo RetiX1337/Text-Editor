@@ -4,41 +4,41 @@ import java.util.Scanner;
 
 public class TextEditor {
 
-    private StringBuilder mainString = new StringBuilder();
-    private String bufferString = "";
-    private Scanner scanner = new Scanner(System.in);
+    private final StringBuilder mainString = new StringBuilder();
+    private final StringBuilder bufferString = new StringBuilder();
+    private final Scanner scanner = new Scanner(System.in);
 
     public void printString() {
         System.out.println(mainString);
     }
 
     public void addToEnd() {
-        System.out.println("Ââåäèòå ñòðîêó: ");
+        System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÑ‚Ñ€Ð¾ÐºÑƒ: ");
         mainString.append(scanner.nextLine());
     }
 
     public void addToIndex() {
         int index;
         if (!mainString.isEmpty()) {
-            System.out.println("Ââåäèòå èíäåêñ: ");
+            System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ: ");
             index = getIndex();
-            System.out.println("Ââåäèòå ñòðîêó: ");
+            System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑÑ‚Ñ€Ð¾ÐºÑƒ: ");
             mainString.insert(index, scanner.nextLine());
         } else {
-            System.out.println("Ñòðîêà ïóñòàÿ");
+            System.out.println("Ð¡Ñ‚Ñ€Ð¾ÐºÐ° Ð¿ÑƒÑÑ‚Ð°Ñ");
         }
     }
 
     public void deleteFromIndex() {
         int startIndex, endIndex;
         if (!mainString.isEmpty()) {
-            System.out.println("Ââåäèòå èíäåêñ íà÷àëà äèàïàçîíà: ");
+            System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ Ð½Ð°Ñ‡Ð°Ð»Ð° Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð°: ");
             startIndex = getIndex();
-            System.out.println("Ââåäèòå èíäåêñ êîíöà äèàïàçîíà: ");
+            System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ ÐºÐ¾Ð½Ñ†Ð° Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð°: ");
             endIndex = getIndex();
             mainString.delete(startIndex, endIndex);
         } else {
-            System.out.println("Ñòðîêà ïóñòàÿ");
+            System.out.println("Ð¡Ñ‚Ñ€Ð¾ÐºÐ° Ð¿ÑƒÑÑ‚Ð°Ñ");
         }
     }
 
@@ -51,25 +51,26 @@ public class TextEditor {
     public void copy(boolean cut) {
         int startIndex, endIndex;
         if (!mainString.isEmpty()) {
-            System.out.println("Ââåäèòå èíäåêñ íà÷àëà äèàïàçîíà: ");
+            System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ Ð½Ð°Ñ‡Ð°Ð»Ð° Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð°: ");
             startIndex = getIndex();
-            System.out.println("Ââåäèòå èíäåêñ êîíöà äèàïàçîíà: ");
+            System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ ÐºÐ¾Ð½Ñ†Ð° Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð°: ");
             endIndex = getIndex();
-            bufferString = mainString.substring(startIndex, endIndex);
+            bufferString.setLength(0);
+            bufferString.append(mainString.substring(startIndex, endIndex));
             if (cut) deleteFromIndex(startIndex, endIndex);
         } else {
-            System.out.println("Ñòðîêà ïóñòàÿ");
+            System.out.println("Ð¡Ñ‚Ñ€Ð¾ÐºÐ° Ð¿ÑƒÑÑ‚Ð°Ñ");
         }
     }
 
     public void paste() {
         int index;
-        if (!bufferString.equals("")) {
-            System.out.println("Ââåäèòå èíäåêñ: ");
+        if (!bufferString.isEmpty()) {
+            System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð½Ð´ÐµÐºÑ: ");
             index = getIndex();
             mainString.insert(index, bufferString);
         } else {
-            System.out.println("Áóôåð ïóñòîé");
+            System.out.println("Ð‘ÑƒÑ„ÐµÑ€ Ð¿ÑƒÑÑ‚Ð¾Ð¹");
         }
     }
 
@@ -83,9 +84,9 @@ public class TextEditor {
             try {
                 index = checkIndex();
             } catch (NumberFormatException e) {
-                System.out.println("Ââåäåíî íåêîððåêòíîå çíà÷åíèå.");
+                System.out.println("Ð’Ð²ÐµÐ´ÐµÐ½Ð¾ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ.");
             } catch (IndexException e) {
-                System.out.println("Ââåä¸ííîå çíà÷åíèå âûõîäèò çà ãðàíèöû ñòðîêè.");
+                System.out.println("Ð’Ð²ÐµÐ´Ñ‘Ð½Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð²Ñ‹Ñ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð° Ð³Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ ÑÑ‚Ñ€Ð¾ÐºÐ¸.");
             }
         } while (index > mainString.length() || index < 0);
         return index;
