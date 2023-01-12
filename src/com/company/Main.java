@@ -1,8 +1,7 @@
 package com.company;
 
-import java.io.IOException;
 import java.util.Scanner;
-
+//Test commit using GitHub Desktop
 public class Main {
 
     public static void main(String[] args) {
