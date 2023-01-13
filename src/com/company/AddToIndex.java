@@ -1,6 +1,7 @@
 package com.company;
 
 public class AddToIndex extends Command{
+    public static String description="Вставить строку по индексу";
 
     public AddToIndex(TextEditor textEditor) {
         super(textEditor);

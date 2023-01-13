@@ -10,7 +10,9 @@ public class TextEditor {
     CommandHistory commandHistory = new CommandHistory();
 
     public void executeCommand(Command command) {
-        if(command.execute()) commandHistory.push(command);
+        if(command.execute()) {
+            commandHistory.push(command);
+        }
     }
 
     public void undoCommand() {

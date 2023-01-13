@@ -1,6 +1,7 @@
 package com.company;
 
 public class Copy extends Command{
+    public static String description="Копировать часть строки в буфер";
 
     public Copy(TextEditor textEditor) {
         super(textEditor);

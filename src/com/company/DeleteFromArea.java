@@ -1,6 +1,7 @@
 package com.company;
 
 public class DeleteFromArea extends Command{
+    public static String description="Удалить часть строки";
 
     public DeleteFromArea(TextEditor textEditor) {
         super(textEditor);

@@ -1,6 +1,7 @@
 package com.company;
 
 public class Cut extends Command{
+    public static String description="Вырезать часть строки в буфер";
 
     public Cut(TextEditor textEditor) {
         super(textEditor);

@@ -3,6 +3,7 @@ package com.company;
 public abstract class Command {
     public TextEditor textEditor;
     private String backUp;
+    public String description;
 
     public Command(TextEditor textEditor) {
         this.textEditor = textEditor;

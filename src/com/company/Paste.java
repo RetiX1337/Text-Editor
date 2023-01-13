@@ -1,6 +1,7 @@
 package com.company;
 
 public class Paste extends Command{
+    public static String description="Вставить строку по индексу из буфера";
 
     public Paste(TextEditor textEditor) {
         super(textEditor);
