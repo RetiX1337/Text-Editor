@@ -15,7 +15,8 @@ public class Menu {
         System.out.println("4. Удалить часть строки");
         System.out.println("5. Вставить строку по индексу из буфера");
         System.out.println("6. Вырезать часть строки в буфер");
-        System.out.println("7. Выйти из программы");
+        System.out.println("7. Отменить действие");
+        System.out.println("8. Выйти из программы");
         while(true){
             while(true) {
                 try {
@@ -26,16 +27,17 @@ public class Menu {
                 }
             }
             switch(choice) {
-                case 1 -> textEditor.addToEnd();
-                case 2 -> textEditor.addToIndex();
-                case 3 -> textEditor.copy(false);
-                case 4 -> textEditor.deleteFromIndex();
-                case 5 -> textEditor.paste();
-                case 6 -> textEditor.cut();
-                case 7 -> System.exit(0);
+                case 1 -> textEditor.executeCommand(new AddToEnd(textEditor));
+                case 2 -> textEditor.executeCommand(new AddToIndex(textEditor));
+                case 3 -> textEditor.executeCommand(new Copy(textEditor));
+                case 4 -> textEditor.executeCommand(new DeleteFromArea(textEditor));
+                case 5 -> textEditor.executeCommand(new Paste(textEditor));
+                case 6 -> textEditor.executeCommand(new Cut(textEditor));
+                case 7 -> textEditor.undoCommand();
+                case 8 -> System.exit(0);
                 default -> System.out.println("Данный вариант не существует");
             }
-            textEditor.printString();
+            Helper.printString();
         }
     }
 
