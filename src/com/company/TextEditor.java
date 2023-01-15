@@ -1,13 +1,13 @@
 package com.company;
 
-import java.util.Scanner;
+import com.company.command.Command;
+
 
 public class TextEditor {
 
-    protected static final StringBuilder mainString = new StringBuilder();
-    protected static final StringBuilder bufferString = new StringBuilder();
-    protected static final Scanner scanner = new Scanner(System.in);
-    CommandHistory commandHistory = new CommandHistory();
+    private final StringBuilder mainString = new StringBuilder();
+    private final StringBuilder bufferString = new StringBuilder();
+    private final CommandHistory commandHistory = new CommandHistory();
 
     public void executeCommand(Command command) {
         if(command.execute()) {
@@ -15,12 +15,15 @@ public class TextEditor {
         }
     }
 
-    public void undoCommand() {
-        if (commandHistory.isEmpty()) {
-            System.out.println("Список команд пуст");
-            return;
-        }
-        Command command = commandHistory.pop();
-        command.undo();
+    public CommandHistory getCommandHistory() {
+        return commandHistory;
+    }
+
+    public StringBuilder getMainString() {
+        return mainString;
+    }
+
+    public StringBuilder getBufferString() {
+        return bufferString;
     }
 }

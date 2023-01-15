@@ -1,28 +1,37 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Helper {
-    protected static int getIndex() {
+    public static final Scanner scanner = new Scanner(System.in);
+    public static int getIndex(TextEditor textEditor) {
         int index = -1;
         do {
             try {
-                index = checkIndex();
+                index = checkIndex(textEditor);
             } catch (NumberFormatException e) {
                 System.out.println("Введено некорректное значение.");
             } catch (IndexException e) {
                 System.out.println("Введённое значение выходит за границы строки.");
             }
-        } while (index > TextEditor.mainString.length() || index < 0);
+        } while (index > textEditor.getMainString().length() || index < 0);
         return index;
     }
 
-    protected static int checkIndex() {
-        String input = TextEditor.scanner.nextLine();
+    public static int checkIndex(TextEditor textEditor) {
+        String input = scanner.nextLine();
         if (!input.matches("[0-9]*")) throw new NumberFormatException();
-        if (Integer.parseInt(input) > TextEditor.mainString.length() || Integer.parseInt(input) < 0) throw new IndexException();
+        if (Integer.parseInt(input) > textEditor.getMainString().length() || Integer.parseInt(input) < 0) throw new IndexException();
         return Integer.parseInt(input);
     }
 
-    protected static void printString() {
-        System.out.println(TextEditor.mainString);
+    public static int checkMenuInput() {
+        String input = scanner.nextLine();
+        if (!input.matches("[0-9]*")) throw new NumberFormatException();
+        return Integer.parseInt(input);
+    }
+
+    public static void printString(TextEditor textEditor) {
+        System.out.println(textEditor.getMainString());
     }
 }

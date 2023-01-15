@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.command.Command;
+
 import java.util.Stack;
 
 public class CommandHistory {
