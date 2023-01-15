@@ -12,6 +12,10 @@ public class Undo extends Command {
     }
 
     @Override
+    public void undo() {
+    }
+
+    @Override
     public boolean execute() {
         if (textEditor.getCommandHistory().isEmpty()) {
             System.out.println("Список команд пуст");
@@ -27,3 +31,4 @@ public class Undo extends Command {
         return new Undo(textEditor);
     }
 }
+

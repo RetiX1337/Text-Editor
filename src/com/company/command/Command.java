@@ -4,7 +4,6 @@ import com.company.TextEditor;
 
 public abstract class Command {
     public TextEditor textEditor;
-    private String backUp;
     public String description;
     public String name;
 
@@ -14,14 +13,7 @@ public abstract class Command {
         this.name = name;
     }
 
-    public void setBackUp() {
-        backUp = String.valueOf(textEditor.getMainString());
-    }
-
-    public void undo() {
-        textEditor.getMainString().setLength(0);
-        textEditor.getMainString().append(backUp);
-    }
+    public abstract void undo();
 
     public abstract boolean execute();
 

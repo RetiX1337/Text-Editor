@@ -7,14 +7,20 @@ import com.company.command.Command;
 public class AddToEnd extends Command {
     public static final String description="Дописать строку к концу";
     public static final String name="AddToEnd";
+    private int backUpIndex;
 
     public AddToEnd(TextEditor textEditor) {
         super(textEditor, name, description);
     }
 
     @Override
+    public void undo() {
+        textEditor.getMainString().delete(backUpIndex, textEditor.getMainString().length());
+    }
+
+    @Override
     public boolean execute() {
-        setBackUp();
+        backUpIndex=textEditor.getMainString().length();
         System.out.println("Введите строку: ");
         textEditor.getMainString().append(Helper.scanner.nextLine());
         return true;

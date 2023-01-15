@@ -13,6 +13,10 @@ public class Copy extends Command {
     }
 
     @Override
+    public void undo() {
+    }
+
+    @Override
     public boolean execute() {
         int startIndex, endIndex;
         if (!textEditor.getMainString().isEmpty()) {

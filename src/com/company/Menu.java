@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.command.Command;
+
 public class Menu {
     public static TextEditor textEditor = new TextEditor();
     public static CommandContainer commandContainer = new CommandContainer(textEditor);
@@ -28,6 +30,11 @@ public class Menu {
     }
 
     private static void switchMenu(int choice) {
-        textEditor.executeCommand(commandContainer.getCommand(choice));
+        Command command = commandContainer.getCommand(choice);
+        if(command!=null) {
+            textEditor.executeCommand(commandContainer.getCommand(choice));
+        } else {
+            System.out.println("Данной команды не существует");
+        }
     }
 }

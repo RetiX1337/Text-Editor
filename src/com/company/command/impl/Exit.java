@@ -12,6 +12,10 @@ public class Exit extends Command {
     }
 
     @Override
+    public void undo() {
+    }
+
+    @Override
     public boolean execute() {
         System.out.println("Конец программы");
         System.exit(0);

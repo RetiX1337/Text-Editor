@@ -8,7 +8,7 @@ import java.util.Map;
 public class CommandContainer {
     private final Map<Integer, Command> commandMap = new HashMap<>();
     public TextEditor textEditor;
-    private Command defaultCommand;
+    private final Command defaultCommand = null;
 
     public CommandContainer(TextEditor textEditor) {
         this.textEditor = textEditor;
@@ -22,8 +22,13 @@ public class CommandContainer {
         commandMap.put(8, new Exit(textEditor));
     }
 
-    public Command getCommand(int commandNumber)  {
-        return commandMap.get(commandNumber).getInstance();
+    public Command getCommand(int commandNumber) {
+        Command returnableCommand=commandMap.getOrDefault(commandNumber, defaultCommand);
+        if(returnableCommand!=defaultCommand){
+            return commandMap.get(commandNumber).getInstance();
+        } else {
+            return defaultCommand;
+        }
     }
 
     public Map<Integer, Command> getAllCommands() {
