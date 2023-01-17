@@ -2,39 +2,43 @@ package com.company;
 
 import com.company.command.Command;
 
+import java.util.Map;
+import java.util.Set;
+
 public class Menu {
-    public static TextEditor textEditor = new TextEditor();
-    public static CommandContainer commandContainer = new CommandContainer(textEditor);
+    private static final TextEditor textEditor = new TextEditor();
+    private static final CommandContainer commandContainer = new CommandContainer(textEditor);
+    private static boolean menuIndicator = true;
 
     public static void menu() {
-        int choice;
+        String choice;
         printMenu();
-        while (true) {
-            while (true) {
-                try {
-                    choice = Helper.checkMenuInput();
-                    break;
-                } catch (NumberFormatException e) {
-                    System.out.println("Введено некорректное значение");
-                }
+        while (menuIndicator) {
+            try {
+                Thread.sleep(10);
+                choice = Helper.checkMenuInput();
+                switchMenu(choice);
+                Helper.printString(textEditor);
+            } catch (NumberFormatException e) {
+                System.out.println("Введено некорректное значение");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-            switchMenu(choice);
-            Helper.printString(textEditor);
         }
     }
 
     private static void printMenu() {
-        for(int i = 1; i<=commandContainer.getAllCommands().size(); i++) {
-            System.out.println(i + ". " + commandContainer.getAllCommands().get(i).description);
+        Set<Map.Entry<String, Command>> entries = commandContainer.getAllCommands().entrySet();
+        for (Map.Entry<String, Command> entry : entries) {
+            System.out.println(entry.getKey() + ": " + entry.getValue().getDescription());
         }
     }
 
-    private static void switchMenu(int choice) {
-        Command command = commandContainer.getCommand(choice);
-        if(command!=null) {
-            textEditor.executeCommand(commandContainer.getCommand(choice));
-        } else {
-            System.out.println("Данной команды не существует");
-        }
+    private static void switchMenu(String choice) {
+        textEditor.executeCommand(commandContainer.getCommand(choice));
+    }
+
+    public static void setMenuIndicator(boolean menuIndicator) {
+        Menu.menuIndicator = menuIndicator;
     }
 }

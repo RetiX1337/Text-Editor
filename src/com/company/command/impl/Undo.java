@@ -2,13 +2,14 @@ package com.company.command.impl;
 
 import com.company.TextEditor;
 import com.company.command.Command;
+import com.company.command.impl.service.UndoService;
 
 public class Undo extends Command {
-    public static final String description="Отменить действие";
-    public static final String name="Undo";
+    public static final String description = "Отменить действие";
+    public static final String name = "Undo";
 
     public Undo(TextEditor textEditor) {
-        super(textEditor, name, description);
+        super(textEditor);
     }
 
     @Override
@@ -17,13 +18,12 @@ public class Undo extends Command {
 
     @Override
     public boolean execute() {
-        if (textEditor.getCommandHistory().isEmpty()) {
-            System.out.println("Список команд пуст");
-        } else {
-            Command command = textEditor.getCommandHistory().pop();
-            command.undo();
-        }
-        return false;
+        return UndoService.service(textEditor);
+    }
+
+    @Override
+    public String getDescription() {
+        return Undo.description;
     }
 
     @Override

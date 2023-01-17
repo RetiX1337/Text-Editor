@@ -2,36 +2,32 @@ package com.company;
 
 import com.company.command.Command;
 import com.company.command.impl.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandContainer {
-    private final Map<Integer, Command> commandMap = new HashMap<>();
+    private final Map<String, Command> commandMap = new HashMap<>();
     public TextEditor textEditor;
-    private final Command defaultCommand = null;
 
     public CommandContainer(TextEditor textEditor) {
         this.textEditor = textEditor;
-        commandMap.put(1, new AddToEnd(textEditor));
-        commandMap.put(2, new AddToIndex(textEditor));
-        commandMap.put(3, new Copy(textEditor));
-        commandMap.put(4, new DeleteFromArea(textEditor));
-        commandMap.put(5, new Paste(textEditor));
-        commandMap.put(6, new Cut(textEditor));
-        commandMap.put(7, new Undo(textEditor));
-        commandMap.put(8, new Exit(textEditor));
+        commandMap.put(AddToEnd.name, new AddToEnd(textEditor));
+        commandMap.put(AddToIndex.name, new AddToIndex(textEditor));
+        commandMap.put(Copy.name, new Copy(textEditor));
+        commandMap.put(DeleteFromArea.name, new DeleteFromArea(textEditor));
+        commandMap.put(Paste.name, new Paste(textEditor));
+        commandMap.put(Cut.name, new Cut(textEditor));
+        commandMap.put(Undo.name, new Undo(textEditor));
+        commandMap.put(Exit.name, new Exit(textEditor));
     }
 
-    public Command getCommand(int commandNumber) {
-        Command returnableCommand=commandMap.getOrDefault(commandNumber, defaultCommand);
-        if(returnableCommand!=defaultCommand){
-            return commandMap.get(commandNumber).getInstance();
-        } else {
-            return defaultCommand;
-        }
+    public Command getCommand(String commandName) {
+        Command returnableCommand = commandMap.getOrDefault(commandName, new Default(textEditor));
+        return returnableCommand.getInstance();
     }
 
-    public Map<Integer, Command> getAllCommands() {
+    public Map<String, Command> getAllCommands() {
         return commandMap;
     }
 }

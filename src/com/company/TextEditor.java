@@ -10,7 +10,7 @@ public class TextEditor {
     private final CommandHistory commandHistory = new CommandHistory();
 
     public void executeCommand(Command command) {
-        if(command.execute()) {
+        if (command.execute()) {
             commandHistory.push(command);
         }
     }

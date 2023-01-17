@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Helper {
     public static final Scanner scanner = new Scanner(System.in);
+
     public static int getIndex(TextEditor textEditor) {
         int index = -1;
         do {
@@ -21,14 +22,13 @@ public class Helper {
     public static int checkIndex(TextEditor textEditor) {
         String input = scanner.nextLine();
         if (!input.matches("[0-9]*")) throw new NumberFormatException();
-        if (Integer.parseInt(input) > textEditor.getMainString().length() || Integer.parseInt(input) < 0) throw new IndexException();
+        if (Integer.parseInt(input) > textEditor.getMainString().length() || Integer.parseInt(input) < 0)
+            throw new IndexException();
         return Integer.parseInt(input);
     }
 
-    public static int checkMenuInput() {
-        String input = scanner.nextLine();
-        if (!input.matches("[0-9]*")) throw new NumberFormatException();
-        return Integer.parseInt(input);
+    public static String checkMenuInput() {
+        return scanner.nextLine();
     }
 
     public static void printString(TextEditor textEditor) {
