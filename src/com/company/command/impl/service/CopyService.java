@@ -3,13 +3,24 @@ package com.company.command.impl.service;
 import com.company.TextEditor;
 
 public class CopyService {
-    public static boolean service(int startIndex, int endIndex, TextEditor textEditor) {
-        if (!textEditor.getMainString().isEmpty()) {
+    private static CopyService instance = null;
+
+    private CopyService(){}
+
+    public boolean service(int startIndex, int endIndex, TextEditor textEditor) {
+        if (!textEditor.getTempString().isEmpty()) {
             textEditor.getBufferString().setLength(0);
-            textEditor.getBufferString().append(textEditor.getMainString().substring(startIndex, endIndex));
+            textEditor.getBufferString().append(textEditor.getTempString().substring(startIndex, endIndex));
         } else {
             System.out.println("Строка пустая");
         }
         return false;
+    }
+
+    public static CopyService getInstance() {
+        if(instance!=null){
+            return instance;
+        }
+        return instance = new CopyService();
     }
 }

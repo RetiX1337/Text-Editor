@@ -8,25 +8,33 @@ import com.company.command.impl.service.CopyService;
 public class Copy extends Command {
     public static final String description = "Копировать часть строки в буфер";
     public static final String name = "Copy";
+    private int startIndex;
+    private int endIndex;
 
     public Copy(TextEditor textEditor) {
         super(textEditor);
     }
 
     @Override
-    public void undo() {
+    public boolean execute() {
+        textEditor.getCommandHistory().historyExecute(textEditor);
+        boolean returnable = setData();
+        textEditor.getTempString().setLength(0);
+        return returnable;
     }
 
     @Override
-    public boolean execute() {
-        int startIndex, endIndex;
+    public void outsideExecute() {
+        CopyService.getInstance().service(startIndex, endIndex, textEditor);
+    }
 
+    @Override
+    public boolean setData() {
         System.out.println("Введите индекс начала диапазона: ");
-        startIndex = Helper.getIndex(textEditor);
+        this.startIndex = Helper.getIndex(textEditor);
         System.out.println("Введите индекс конца диапазона: ");
-        endIndex = Helper.getIndex(textEditor);
-
-        return CopyService.service(startIndex, endIndex, textEditor);
+        this.endIndex = Helper.getIndex(textEditor);
+        return true;
     }
 
     @Override
@@ -38,5 +46,6 @@ public class Copy extends Command {
     public Command getInstance() {
         return new Copy(textEditor);
     }
+
 
 }

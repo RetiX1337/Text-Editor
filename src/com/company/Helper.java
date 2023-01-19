@@ -15,14 +15,14 @@ public class Helper {
             } catch (IndexException e) {
                 System.out.println("Введённое значение выходит за границы строки.");
             }
-        } while (index > textEditor.getMainString().length() || index < 0);
+        } while (index > textEditor.getTempString().length() || index < 0);
         return index;
     }
 
     public static int checkIndex(TextEditor textEditor) {
         String input = scanner.nextLine();
         if (!input.matches("[0-9]*")) throw new NumberFormatException();
-        if (Integer.parseInt(input) > textEditor.getMainString().length() || Integer.parseInt(input) < 0)
+        if (Integer.parseInt(input) > textEditor.getTempString().length() || Integer.parseInt(input) < 0)
             throw new IndexException();
         return Integer.parseInt(input);
     }
@@ -32,6 +32,9 @@ public class Helper {
     }
 
     public static void printString(TextEditor textEditor) {
-        System.out.println(textEditor.getMainString());
+        textEditor.getCommandHistory().historyExecute(textEditor);
+        System.out.println(textEditor.getTempString());
+        textEditor.getTempString().setLength(0);
     }
+
 }

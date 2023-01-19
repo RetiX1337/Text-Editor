@@ -13,12 +13,19 @@ public class Undo extends Command {
     }
 
     @Override
-    public void undo() {
+    public boolean execute() {
+        UndoService.getInstance().service(textEditor);
+        return false;
     }
 
     @Override
-    public boolean execute() {
-        return UndoService.service(textEditor);
+    public void outsideExecute() {
+        UndoService.getInstance().service(textEditor);
+    }
+
+    @Override
+    public boolean setData() {
+        return false;
     }
 
     @Override
@@ -30,5 +37,6 @@ public class Undo extends Command {
     public Command getInstance() {
         return new Undo(textEditor);
     }
+
 }
 

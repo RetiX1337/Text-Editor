@@ -3,8 +3,20 @@ package com.company.command.impl.service;
 import com.company.TextEditor;
 
 public class AddToEndService {
-    public static boolean service(String input, TextEditor textEditor) {
-        textEditor.getMainString().append(input);
+    private static AddToEndService instance=null;
+
+    private AddToEndService(){
+    }
+
+    public boolean service(String input, TextEditor textEditor) {
+        textEditor.getTempString().append(input);
         return true;
+    }
+
+    public static AddToEndService getInstance() {
+        if(instance!=null){
+            return instance;
+        }
+        return instance = new AddToEndService();
     }
 }

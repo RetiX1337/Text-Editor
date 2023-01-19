@@ -35,7 +35,7 @@ public class Menu {
     }
 
     private static void switchMenu(String choice) {
-        textEditor.executeCommand(commandContainer.getCommand(choice));
+        textEditor.executeCommand(commandContainer.getCommand(choice), textEditor);
     }
 
     public static void setMenuIndicator(boolean menuIndicator) {

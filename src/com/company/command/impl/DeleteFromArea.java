@@ -8,31 +8,38 @@ import com.company.command.impl.service.DeleteFromAreaService;
 public class DeleteFromArea extends Command {
     public static final String description = "Удалить часть строки";
     public static final String name = "DeleteFromArea";
-    private int backUpIndexStart;
-    private String backUpString;
+    private int startIndex;
+    private int endIndex;
 
     public DeleteFromArea(TextEditor textEditor) {
         super(textEditor);
     }
 
     @Override
-    public void undo() {
-        textEditor.getMainString().insert(backUpIndexStart, backUpString);
+    public boolean execute() {
+        textEditor.getCommandHistory().historyExecute(textEditor);
+        boolean returnable = setData();
+        textEditor.getTempString().setLength(0);
+        return returnable;
     }
 
     @Override
-    public boolean execute() {
-        int startIndex, endIndex;
+    public void outsideExecute() {
+        DeleteFromAreaService.getInstance().service(startIndex, endIndex, textEditor);
+    }
 
-        System.out.println("Введите индекс начала диапазона: ");
-        startIndex = Helper.getIndex(textEditor);
-        System.out.println("Введите индекс конца диапазона: ");
-        endIndex = Helper.getIndex(textEditor);
-
-        backUpString = textEditor.getMainString().substring(startIndex, endIndex);
-        backUpIndexStart = startIndex;
-
-        return DeleteFromAreaService.service(startIndex, endIndex, textEditor);
+    @Override
+    public boolean setData() {
+        if (!textEditor.getTempString().isEmpty()) {
+            System.out.println("Введите индекс начала диапазона: ");
+            this.startIndex = Helper.getIndex(textEditor);
+            System.out.println("Введите индекс конца диапазона: ");
+            this.endIndex = Helper.getIndex(textEditor);
+            return true;
+        } else {
+            System.out.println("Строка пустая");
+            return false;
+        }
     }
 
     @Override
@@ -44,5 +51,6 @@ public class DeleteFromArea extends Command {
     public Command getInstance() {
         return new DeleteFromArea(textEditor);
     }
+
 
 }

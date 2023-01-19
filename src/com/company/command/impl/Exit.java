@@ -13,12 +13,18 @@ public class Exit extends Command {
     }
 
     @Override
-    public void undo() {
+    public boolean execute() {
+        return ExitService.getInstance().service();
     }
 
     @Override
-    public boolean execute() {
-        return ExitService.service();
+    public void outsideExecute() {
+
+    }
+
+    @Override
+    public boolean setData() {
+        return false;
     }
 
     @Override
@@ -30,4 +36,5 @@ public class Exit extends Command {
     public Command getInstance() {
         return new Exit(textEditor);
     }
+
 }

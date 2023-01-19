@@ -8,26 +8,34 @@ import com.company.command.impl.service.AddToEndService;
 public class AddToEnd extends Command {
     public static final String description = "Дописать строку к концу";
     public static final String name = "AddToEnd";
-    private int backUpIndex;
+    private int index;
+    private String input;
 
     public AddToEnd(TextEditor textEditor) {
         super(textEditor);
     }
 
     @Override
-    public void undo() {
-        textEditor.getMainString().delete(backUpIndex, textEditor.getMainString().length());
+    public boolean execute() {
+        textEditor.getCommandHistory().historyExecute(textEditor);
+        boolean returnable = setData();
+        textEditor.getTempString().setLength(0);
+        return returnable;
     }
 
     @Override
-    public boolean execute() {
-        backUpIndex = textEditor.getMainString().length();
-
+    public boolean setData() {
+        this.index = textEditor.getMainString().length();
         System.out.println("Введите строку: ");
-        String input = Helper.scanner.nextLine();
-
-        return AddToEndService.service(input, textEditor);
+        this.input = Helper.scanner.nextLine();
+        return true;
     }
+
+    @Override
+    public void outsideExecute() {
+        AddToEndService.getInstance().service(input, textEditor);
+    }
+
 
     @Override
     public String getDescription() {
@@ -38,5 +46,4 @@ public class AddToEnd extends Command {
     public Command getInstance() {
         return new AddToEnd(textEditor);
     }
-
 }

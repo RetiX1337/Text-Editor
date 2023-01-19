@@ -9,9 +9,11 @@ public abstract class Command {
         this.textEditor = textEditor;
     }
 
-    public abstract void undo();
-
     public abstract boolean execute();
+
+    public abstract void outsideExecute();
+
+    public abstract boolean setData();
 
     public abstract String getDescription();
 

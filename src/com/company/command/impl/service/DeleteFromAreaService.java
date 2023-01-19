@@ -3,13 +3,24 @@ package com.company.command.impl.service;
 import com.company.TextEditor;
 
 public class DeleteFromAreaService {
-    public static boolean service(int startIndex, int endIndex, TextEditor textEditor) {
-        if (!textEditor.getMainString().isEmpty()) {
-            textEditor.getMainString().delete(startIndex, endIndex);
+    private static DeleteFromAreaService instance = null;
+
+    private DeleteFromAreaService() {}
+
+    public boolean service(int startIndex, int endIndex, TextEditor textEditor) {
+        if (!textEditor.getTempString().isEmpty()) {
+            textEditor.getTempString().delete(startIndex, endIndex);
             return true;
         } else {
             System.out.println("Строка пустая");
             return false;
         }
+    }
+
+    public static DeleteFromAreaService getInstance() {
+        if(instance!=null){
+            return instance;
+        }
+        return instance = new DeleteFromAreaService();
     }
 }

@@ -12,13 +12,18 @@ public class Default extends Command {
     }
 
     @Override
-    public void undo() {
-        throw new UnsupportedOperationException();
+    public boolean execute() {
+        System.out.println("Данной команды не существует");
+        return false;
     }
 
     @Override
-    public boolean execute() {
-        System.out.println("Данной команды не существует");
+    public void outsideExecute() {
+
+    }
+
+    @Override
+    public boolean setData() {
         return false;
     }
 
@@ -31,4 +36,5 @@ public class Default extends Command {
     public Command getInstance() {
         return new Default(textEditor);
     }
+
 }
