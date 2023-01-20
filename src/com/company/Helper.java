@@ -20,10 +20,17 @@ public class Helper {
     }
 
     public static int checkIndex(TextEditor textEditor) {
+        int input;
+        input = checkInt();
+        if (input > textEditor.getTempString().length() || input < 0)
+            throw new IndexException();
+        return input;
+
+    }
+
+    public static int checkInt() {
         String input = scanner.nextLine();
         if (!input.matches("[0-9]*")) throw new NumberFormatException();
-        if (Integer.parseInt(input) > textEditor.getTempString().length() || Integer.parseInt(input) < 0)
-            throw new IndexException();
         return Integer.parseInt(input);
     }
 

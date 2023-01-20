@@ -9,7 +9,7 @@ public class CommandHistory {
     private final ArrayDeque<Command> history = new ArrayDeque<>();
 
     public void push(Command command, TextEditor textEditor) {
-        if(history.size()==2){
+        if (history.size() == 10) {
             textEditor.setMainStringSnapshot(history.pollFirst());
             history.offerLast(command);
         } else {

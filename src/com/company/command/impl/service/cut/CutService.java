@@ -1,4 +1,4 @@
-package com.company.command.impl.service;
+package com.company.command.impl.service.cut;
 
 import com.company.TextEditor;
 

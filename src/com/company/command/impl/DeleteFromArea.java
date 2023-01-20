@@ -3,7 +3,7 @@ package com.company.command.impl;
 import com.company.Helper;
 import com.company.TextEditor;
 import com.company.command.Command;
-import com.company.command.impl.service.DeleteFromAreaService;
+import com.company.command.impl.service.deletefromarea.DeleteFromAreaService;
 
 public class DeleteFromArea extends Command {
     public static final String description = "Удалить часть строки";

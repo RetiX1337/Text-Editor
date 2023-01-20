@@ -3,7 +3,8 @@ package com.company.command.impl;
 import com.company.Helper;
 import com.company.TextEditor;
 import com.company.command.Command;
-import com.company.command.impl.service.AddToIndexService;
+import com.company.command.impl.service.Service;
+import com.company.command.impl.service.addtoindex.AddToIndexService;
 
 public class AddToIndex extends Command {
     public static final String description = "Вставить строку по индексу";
@@ -39,7 +40,7 @@ public class AddToIndex extends Command {
 
     @Override
     public void outsideExecute() {
-        AddToIndexService.getInstance().service(input, index, textEditor);
+        Service.getInstance().executeAddToIndex(input, index, textEditor);
     }
 
     @Override

@@ -1,12 +1,13 @@
-package com.company.command.impl.service;
+package com.company.command.impl.service.addtoindex;
 
 import com.company.TextEditor;
 
-public class AddToIndexService {
+public class AddToIndexService implements AddToIndexInterface {
     private static AddToIndexService instance = null;
 
     private AddToIndexService(){}
 
+    @Override
     public boolean service(String input, int index, TextEditor textEditor) {
         if (!textEditor.getTempString().isEmpty()) {
             textEditor.getTempString().insert(index, input);

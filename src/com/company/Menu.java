@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.command.Command;
+import com.company.command.impl.service.Configurator;
 
 import java.util.Map;
 import java.util.Set;
@@ -11,6 +12,7 @@ public class Menu {
     private static boolean menuIndicator = true;
 
     public static void menu() {
+        mode();
         String choice;
         printMenu();
         while (menuIndicator) {
@@ -23,6 +25,29 @@ public class Menu {
                 System.out.println("Введено некорректное значение");
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    private static void mode() {
+        System.out.println("""
+                    1. Нормальный текст\s
+                    2. Текст CAPS'ом
+                    """);
+        while(true) {
+            try {
+                int input = Helper.checkInt();
+                if (input == 1) {
+                    new Configurator(false);
+                    break;
+                } else if (input == 2) {
+                    new Configurator(true);
+                    break;
+                } else {
+                    System.out.println("Такого варианта нет");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Введено некорректное значение");
             }
         }
     }

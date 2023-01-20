@@ -3,7 +3,7 @@ package com.company.command.impl;
 import com.company.Helper;
 import com.company.TextEditor;
 import com.company.command.Command;
-import com.company.command.impl.service.CopyService;
+import com.company.command.impl.service.copy.CopyService;
 
 public class Copy extends Command {
     public static final String description = "Копировать часть строки в буфер";

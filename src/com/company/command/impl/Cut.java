@@ -3,7 +3,7 @@ package com.company.command.impl;
 import com.company.Helper;
 import com.company.TextEditor;
 import com.company.command.Command;
-import com.company.command.impl.service.CutService;
+import com.company.command.impl.service.cut.CutService;
 
 public class Cut extends Command {
     public static final String description = "Вырезать часть строки в буфер";

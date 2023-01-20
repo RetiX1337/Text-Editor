@@ -3,7 +3,7 @@ package com.company.command.impl;
 import com.company.Helper;
 import com.company.TextEditor;
 import com.company.command.Command;
-import com.company.command.impl.service.PasteService;
+import com.company.command.impl.service.paste.PasteService;
 
 public class Paste extends Command {
     public static final String description = "Вставить строку по индексу из буфера";
