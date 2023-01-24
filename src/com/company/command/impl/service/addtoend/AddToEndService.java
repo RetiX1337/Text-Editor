@@ -9,7 +9,7 @@ public class AddToEndService implements AddToEndInterface {
     }
 
     @Override
-    public boolean service(String input, TextEditor textEditor) {
+    public boolean execute(String input, TextEditor textEditor) {
         textEditor.getTempString().append(input);
         return true;
     }

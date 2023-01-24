@@ -8,7 +8,7 @@ public class AddToIndexServiceCaps implements AddToIndexInterface {
     private AddToIndexServiceCaps(){}
 
     @Override
-    public boolean service(String input, int index, TextEditor textEditor) {
+    public boolean execute(String input, int index, TextEditor textEditor) {
         if (!textEditor.getTempString().isEmpty()) {
             textEditor.getTempString().insert(index, input.toUpperCase());
             return true;

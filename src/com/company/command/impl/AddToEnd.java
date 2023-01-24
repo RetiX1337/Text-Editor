@@ -3,17 +3,19 @@ package com.company.command.impl;
 import com.company.Helper;
 import com.company.TextEditor;
 import com.company.command.Command;
-import com.company.command.impl.service.Service;
-import com.company.command.impl.service.addtoend.AddToEndService;
+import com.company.command.impl.service.Configurator;
+import com.company.command.impl.service.addtoend.AddToEndInterface;
 
 public class AddToEnd extends Command {
     public static final String description = "Дописать строку к концу";
     public static final String name = "AddToEnd";
     private int index;
     private String input;
+    private final AddToEndInterface service;
 
     public AddToEnd(TextEditor textEditor) {
         super(textEditor);
+        this.service=Configurator.getInstance().getAddToEnd();
     }
 
     @Override
@@ -34,7 +36,7 @@ public class AddToEnd extends Command {
 
     @Override
     public void outsideExecute() {
-        Service.getInstance().executeAddToEnd(input, textEditor);
+        service.execute(input, textEditor);
     }
 
 

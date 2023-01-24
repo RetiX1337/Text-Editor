@@ -5,14 +5,37 @@ import com.company.command.impl.service.addtoindex.*;
 
 
 public class Configurator {
+    private final AddToEndInterface addToEnd;
+    private final AddToIndexInterface addToIndex;
+    private static Configurator instance=null;
+    private static boolean capsIndicator;
 
-    public Configurator(boolean caps) {
-        if(caps) {
-            Service.getInstance().setAddToEnd(AddToEndServiceCaps.getInstance());
-            Service.getInstance().setAddToIndex(AddToIndexServiceCaps.getInstance());
+    private Configurator() {
+        if(capsIndicator) {
+            this.addToEnd=AddToEndServiceCaps.getInstance();
+            this.addToIndex=AddToIndexServiceCaps.getInstance();
         } else {
-            Service.getInstance().setAddToEnd(AddToEndService.getInstance());
-            Service.getInstance().setAddToIndex(AddToIndexService.getInstance());
+            this.addToEnd=AddToEndService.getInstance();
+            this.addToIndex=AddToIndexService.getInstance();
         }
+    }
+
+    public static void setCaps(boolean caps) {
+        capsIndicator = caps;
+    }
+
+    public AddToEndInterface getAddToEnd() {
+        return addToEnd;
+    }
+
+    public AddToIndexInterface getAddToIndex() {
+        return addToIndex;
+    }
+
+    public static Configurator getInstance() {
+        if(instance!=null) {
+            return instance;
+        }
+        return instance = new Configurator();
     }
 }

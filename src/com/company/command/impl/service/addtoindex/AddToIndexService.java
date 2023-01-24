@@ -8,7 +8,7 @@ public class AddToIndexService implements AddToIndexInterface {
     private AddToIndexService(){}
 
     @Override
-    public boolean service(String input, int index, TextEditor textEditor) {
+    public boolean execute(String input, int index, TextEditor textEditor) {
         if (!textEditor.getTempString().isEmpty()) {
             textEditor.getTempString().insert(index, input);
             return true;
