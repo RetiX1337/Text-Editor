@@ -21,7 +21,7 @@ public class Menu {
                 switchMenu(choice);
                 Helper.printString(textEditor);
             } catch (NumberFormatException e) {
-                System.out.println("Введено некорректное значение");
+                System.out.println(Main.bundle.getString("IncorrectValue"));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

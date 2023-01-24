@@ -2,17 +2,19 @@ package com.company;
 
 import com.company.command.impl.service.Configurator;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class Main {
+    public static ResourceBundle bundle = ResourceBundle.getBundle("com.company.resources");
+
     public static void main(String[] args) {
         mode();
         Menu.menu();
     }
 
     private static void mode() {
-        System.out.println("""
-                    1. Нормальный текст\s
-                    2. Текст CAPS'ом
-                    """);
+        System.out.println(bundle.getString("Main.mode1") + "\n" + bundle.getString("Main.mode2"));
         while(true) {
             try {
                 int input = Helper.checkInt();
@@ -23,10 +25,10 @@ public class Main {
                     Configurator.setCaps(true);
                     break;
                 } else {
-                    System.out.println("Такого варианта нет");
+                    System.out.println(bundle.getString("CaseDoesntExist"));
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Введено некорректное значение");
+                System.out.println(bundle.getString("IncorrectValue"));
             }
         }
     }
