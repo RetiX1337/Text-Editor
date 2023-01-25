@@ -2,6 +2,8 @@ package com.company;
 
 import com.company.command.Command;
 import com.company.command.impl.*;
+import com.company.command.impl.service.addtoend.AddToEndInterface;
+import com.company.command.impl.service.addtoindex.AddToIndexInterface;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -9,6 +9,7 @@ public class TextEditor {
     private final StringBuilder tempString = new StringBuilder();
     private final StringBuilder bufferString = new StringBuilder();
     private final CommandHistory commandHistory = new CommandHistory();
+    private final CommandContainer commandContainer = new CommandContainer(this);
 
     public void executeCommand(Command command, TextEditor textEditor) {
         if (command.execute()) {
@@ -41,5 +42,7 @@ public class TextEditor {
         return tempString;
     }
 
-
+    public CommandContainer getCommandContainer() {
+        return commandContainer;
+    }
 }

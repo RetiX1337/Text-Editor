@@ -3,21 +3,19 @@ package com.company.command.impl;
 import com.company.Helper;
 import com.company.TextEditor;
 import com.company.command.Command;
-import com.company.command.impl.service.Configurator;
+import com.company.Configurator;
 import com.company.command.impl.service.addtoend.AddToEndInterface;
 import com.company.command.impl.service.addtoindex.AddToIndexInterface;
-import com.company.command.impl.service.addtoindex.AddToIndexServiceCaps;
 
 public class AddToIndex extends Command {
     public static final String description = "Вставить строку по индексу";
     public static final String name = "AddToIndex";
     private int index;
     private String input;
-    private final AddToIndexInterface service;
+    private static AddToIndexInterface service;
 
     public AddToIndex(TextEditor textEditor) {
         super(textEditor);
-        this.service=Configurator.getInstance().getAddToIndex();
     }
 
     @Override
@@ -45,6 +43,10 @@ public class AddToIndex extends Command {
     @Override
     public void outsideExecute() {
         service.execute(input, index, textEditor);
+    }
+
+    public static void setService(AddToIndexInterface addToIndex) {
+        service=addToIndex;
     }
 
     @Override

@@ -1,35 +1,30 @@
 package com.company;
 
-import com.company.command.impl.service.Configurator;
-
-import java.util.Locale;
+import javax.security.auth.login.Configuration;
 import java.util.ResourceBundle;
 
 public class Main {
+    private static final TextEditor textEditor = new TextEditor();
     public static ResourceBundle bundle = ResourceBundle.getBundle("com.company.resources");
 
     public static void main(String[] args) {
-        mode();
-        Menu.menu();
+        String s = args[0];
+        boolean set = mode(s);
+        if (set) Menu.menu(textEditor);
+        else System.out.println(bundle.getString("IncorrectValue"));
     }
 
-    private static void mode() {
-        System.out.println(bundle.getString("Main.mode1") + "\n" + bundle.getString("Main.mode2"));
-        while(true) {
-            try {
-                int input = Helper.checkInt();
-                if (input == 1) {
-                    Configurator.setCaps(false);
-                    break;
-                } else if (input == 2) {
-                    Configurator.setCaps(true);
-                    break;
-                } else {
-                    System.out.println(bundle.getString("CaseDoesntExist"));
-                }
-            } catch (NumberFormatException e) {
-                System.out.println(bundle.getString("IncorrectValue"));
-            }
+    private static boolean mode(String s) {
+        switch (s) {
+            case "1":
+                new Configurator(false);
+                break;
+            case "2":
+                new Configurator(true);
+                break;
+            default:
+                return false;
         }
+        return true;
     }
 }

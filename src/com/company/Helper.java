@@ -34,14 +34,14 @@ public class Helper {
         return Integer.parseInt(input);
     }
 
-    public static String checkMenuInput() {
-        return scanner.nextLine();
-    }
-
     public static void printString(TextEditor textEditor) {
         textEditor.getCommandHistory().historyExecute(textEditor);
         System.out.println(textEditor.getTempString());
         textEditor.getTempString().setLength(0);
+    }
+
+    public static void findCommand(String choice, TextEditor textEditor) {
+        textEditor.executeCommand(textEditor.getCommandContainer().getCommand(choice), textEditor);
     }
 
 }
