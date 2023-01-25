@@ -9,10 +9,11 @@ public class AddToEnd extends Command {
     public static final String description = "Дописать строку к концу";
     public static final String name = "AddToEnd";
     private String input;
-    private static AddToEndInterface service;
+    private AddToEndInterface service;
 
-    public AddToEnd(TextEditor textEditor) {
+    public AddToEnd(TextEditor textEditor, AddToEndInterface service) {
         super(textEditor);
+        this.service=service;
     }
 
     @Override
@@ -32,11 +33,7 @@ public class AddToEnd extends Command {
 
     @Override
     public void outsideExecute() {
-        service.execute(input, textEditor);
-    }
-
-    public static void setService(AddToEndInterface addToEnd) {
-        service=addToEnd;
+        this.service.execute(input, textEditor);
     }
 
     @Override
@@ -46,6 +43,6 @@ public class AddToEnd extends Command {
 
     @Override
     public Command getInstance() {
-        return new AddToEnd(textEditor);
+        return new AddToEnd(textEditor, service);
     }
 }

@@ -7,13 +7,15 @@ import com.company.command.impl.service.addtoindex.*;
 
 
 public class Configurator {
-    public Configurator(boolean caps) {
+    public Configurator(boolean caps, TextEditor textEditor) {
         if(caps) {
-            AddToEnd.setService(AddToEndServiceCaps.getInstance());
-            AddToIndex.setService(AddToIndexServiceCaps.getInstance());
+            System.out.println("bebra");
+            textEditor.getCommandContainer().setAddToEnd(AddToEndServiceCaps.getInstance());
+            textEditor.getCommandContainer().setAddToIndex(AddToIndexServiceCaps.getInstance());
         } else {
-            AddToEnd.setService(AddToEndService.getInstance());
-            AddToIndex.setService(AddToIndexService.getInstance());
+            System.out.println("bebraddddd");
+            textEditor.getCommandContainer().setAddToEnd(AddToEndService.getInstance());
+            textEditor.getCommandContainer().setAddToIndex(AddToIndexService.getInstance());
         }
     }
 }

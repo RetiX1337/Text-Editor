@@ -12,10 +12,11 @@ public class AddToIndex extends Command {
     public static final String name = "AddToIndex";
     private int index;
     private String input;
-    private static AddToIndexInterface service;
+    private final AddToIndexInterface service;
 
-    public AddToIndex(TextEditor textEditor) {
+    public AddToIndex(TextEditor textEditor, AddToIndexInterface service) {
         super(textEditor);
+        this.service=service;
     }
 
     @Override
@@ -45,10 +46,6 @@ public class AddToIndex extends Command {
         service.execute(input, index, textEditor);
     }
 
-    public static void setService(AddToIndexInterface addToIndex) {
-        service=addToIndex;
-    }
-
     @Override
     public String getDescription() {
         return AddToIndex.description;
@@ -56,7 +53,7 @@ public class AddToIndex extends Command {
 
     @Override
     public Command getInstance() {
-        return new AddToIndex(textEditor);
+        return new AddToIndex(textEditor, service);
     }
 
 }
