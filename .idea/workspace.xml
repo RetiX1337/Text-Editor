@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b7db4460-3ff6-4a42-8a5c-681159e9ab84" name="Changes" comment="Strategy update 2" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="task3" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KE5JEpywcYPBhd0qZwodmtkRgd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.company" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.Main" />
+      <module name="Text Editor" />
+      <option name="PROGRAM_PARAMETERS" value="2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7db4460-3ff6-4a42-8a5c-681159e9ab84" name="Changes" comment="" />
+      <created>1673526835654</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673526835654</updated>
+      <workItem from="1673526844892" duration="20000" />
+    </task>
+    <task id="LOCAL-00001" summary="Test commit using github desktop">
+      <created>1673526977248</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673526977249</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Test commit 2">
+      <created>1673527251154</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673527251154</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added check for menu input, moved menu to its own class">
+      <created>1673528363032</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1673528363032</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Solved problem with cyrillic">
+      <created>1673535792462</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673535792462</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Solved problem with cyrillic">
+      <created>1673535798214</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673535798214</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Moved program to &quot;Command&quot; pattern">
+      <created>1673573161116</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1673573161116</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changed Menu class, added CommandList class which is used to receive the list of commands">
+      <created>1673614373418</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673614373418</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Upgraded menu, added CommandContainer, cleaned up the code">
+      <created>1673804057561</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673804057561</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added Exit and Undo commands&#10;Exit - ends the program&#10;Undo - cancels the command by using abstract method undo()">
+      <created>1673808510636</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1673808510636</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Moved command logic to service package, changed Exit command logic">
+      <created>1673955966697</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673955966697</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Changed Undo and whole program system, services are now singletons">
+      <created>1674131566785</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1674131566785</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Now user can choose how he wants to work (caps or not)">
+      <created>1674223816540</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674223816540</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Caps update">
+      <created>1674519511615</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1674519511615</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Localization">
+      <created>1674560427127</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1674560427127</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Strategy update">
+      <created>1674663391189</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1674663391190</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Strategy update 2">
+      <created>1674665862243</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1674665862243</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Test commit using github desktop" />
+    <MESSAGE value="Test commit 2" />
+    <MESSAGE value="Added check for menu input, moved menu to its own class" />
+    <MESSAGE value="Solved problem with cyrillic" />
+    <MESSAGE value="Moved program to &quot;Command&quot; pattern" />
+    <MESSAGE value="Changed Menu class, added CommandList class which is used to receive the list of commands" />
+    <MESSAGE value="Upgraded menu, added CommandContainer, cleaned up the code" />
+    <MESSAGE value="Added Exit and Undo commands&#10;Exit - ends the program&#10;Undo - cancels the command by using abstract method undo()" />
+    <MESSAGE value="Moved command logic to service package, changed Exit command logic" />
+    <MESSAGE value="Changed Undo and whole program system, services are now singletons" />
+    <MESSAGE value="Now user can choose how he wants to work (caps or not)" />
+    <MESSAGE value="Caps update" />
+    <MESSAGE value="Localization" />
+    <MESSAGE value="Strategy update" />
+    <MESSAGE value="Strategy update 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Strategy update 2" />
+  </component>
+</project>
