@@ -1,33 +1,26 @@
 package com.company;
 
+import com.company.writeread.WriteRead;
+
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class Main {
-    private final TextEditor textEditor = new TextEditor();
+
     public static ResourceBundle bundle = ResourceBundle.getBundle("com.company.resources");
     //commit
     public static void main(String[] args) {
-        Main mainClass = new Main();
+        /*
+        try {
+            WriteRead.writeRead();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        */
         String s = args[0];
-        boolean set = mode(s, mainClass);
-        if (set) {
-            mainClass.textEditor.getCommandContainer().fillContainer();
-            Menu.menu(mainClass.textEditor);
-        }
-        else System.out.println(bundle.getString("IncorrectValue"));
-    }
-
-    private static boolean mode(String s, Main mainClass) {
-        switch (s) {
-            case "1":
-                new Configurator(false, mainClass.textEditor);
-                break;
-            case "2":
-                new Configurator(true, mainClass.textEditor);
-                break;
-            default:
-                return false;
-        }
-        return true;
+        Config configClass = new Config();
+        configClass.config(s);
+        Menu.menu(configClass.getTextEditor(), configClass.getCommandContainer());
     }
 }

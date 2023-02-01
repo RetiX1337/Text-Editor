@@ -17,11 +17,10 @@ public class CommandContainer {
     private AddToEndInterface addToEnd;
     private AddToIndexInterface addToIndex;
 
-    public CommandContainer(TextEditor textEditor) {
+    public CommandContainer(TextEditor textEditor, HashMap<String, Object> strategy) {
         this.textEditor = textEditor;
-    }
-
-    public void fillContainer() {
+        this.addToEnd = (AddToEndInterface) strategy.getOrDefault("AddToEnd", AddToEndService.getInstance());
+        this.addToIndex = (AddToIndexInterface) strategy.getOrDefault("AddToIndex", AddToIndexService.getInstance());
         commandMap.put(AddToEnd.name, new AddToEnd(textEditor, this.addToEnd));
         commandMap.put(AddToIndex.name, new AddToIndex(textEditor, this.addToIndex));
         commandMap.put(Copy.name, new Copy(textEditor));
@@ -39,13 +38,5 @@ public class CommandContainer {
 
     public Map<String, Command> getAllCommands() {
         return commandMap;
-    }
-
-    public void setAddToIndex(AddToIndexInterface addToIndex) {
-        this.addToIndex = addToIndex;
-    }
-
-    public void setAddToEnd(AddToEndInterface addToEnd) {
-        this.addToEnd = addToEnd;
     }
 }

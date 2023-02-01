@@ -4,12 +4,14 @@ import com.company.command.Command;
 
 
 public class TextEditor {
-
     private final StringBuilder mainString = new StringBuilder();
     private final StringBuilder tempString = new StringBuilder();
     private final StringBuilder bufferString = new StringBuilder();
-    private final CommandHistory commandHistory = new CommandHistory();
-    private final CommandContainer commandContainer = new CommandContainer(this);
+    private final CommandHistory commandHistory;
+
+    public TextEditor(CommandHistory commandHistory) {
+        this.commandHistory = commandHistory;
+    }
 
     public void executeCommand(Command command, TextEditor textEditor) {
         if (command.execute()) {
@@ -40,9 +42,5 @@ public class TextEditor {
 
     public StringBuilder getTempString() {
         return tempString;
-    }
-
-    public CommandContainer getCommandContainer() {
-        return commandContainer;
     }
 }

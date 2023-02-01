@@ -3,13 +3,13 @@ package com.company;
 import java.util.Scanner;
 
 public class Helper {
-    public static final Scanner scanner = new Scanner(System.in);
+    private static Scanner instance=null;
 
     public static int getIndex(TextEditor textEditor) {
         int index = -1;
         do {
             try {
-                index = checkIndex(textEditor);
+                index = inputIndex(textEditor);
             } catch (NumberFormatException e) {
                 System.out.println("Введено некорректное значение.");
             } catch (IndexException e) {
@@ -19,17 +19,20 @@ public class Helper {
         return index;
     }
 
-    public static int checkIndex(TextEditor textEditor) {
-        int input;
-        input = checkInt();
-        if (input > textEditor.getTempString().length() || input < 0)
-            throw new IndexException();
-        return input;
-
+    public static boolean checkIndex(TextEditor textEditor, int input) {
+        if (input > textEditor.getTempString().length() || input < 0) return false;
+        return true;
     }
 
-    public static int checkInt() {
-        String input = scanner.nextLine();
+    public static int inputIndex(TextEditor textEditor) {
+        int input;
+        input = inputInt();
+        if(checkIndex(textEditor, input)) return input;
+        throw new IndexException();
+    }
+
+    public static int inputInt() {
+        String input = getScanner().nextLine();
         if (!input.matches("[0-9]*")) throw new NumberFormatException();
         return Integer.parseInt(input);
     }
@@ -40,8 +43,15 @@ public class Helper {
         textEditor.getTempString().setLength(0);
     }
 
-    public static void findCommand(String choice, TextEditor textEditor) {
-        textEditor.executeCommand(textEditor.getCommandContainer().getCommand(choice), textEditor);
+    public static void findCommand(String choice, TextEditor textEditor, CommandContainer commandContainer) {
+        textEditor.executeCommand(commandContainer.getCommand(choice), textEditor);
+    }
+
+    public static Scanner getScanner() {
+        if (instance != null) {
+            return instance;
+        }
+        return instance = new Scanner(System.in);
     }
 
 }
