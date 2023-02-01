@@ -3,8 +3,6 @@ package com.company.command.impl;
 import com.company.Helper;
 import com.company.TextEditor;
 import com.company.command.Command;
-import com.company.Configurator;
-import com.company.command.impl.service.addtoend.AddToEndInterface;
 import com.company.command.impl.service.addtoindex.AddToIndexInterface;
 
 public class AddToIndex extends Command {
@@ -33,7 +31,7 @@ public class AddToIndex extends Command {
             System.out.println("Введите индекс: ");
             this.index = Helper.getIndex(textEditor);
             System.out.println("Введите строку: ");
-            this.input = Helper.scanner.nextLine();
+            this.input = Helper.getScanner().nextLine();
             return true;
         } else {
             System.out.println("Строка пустая");

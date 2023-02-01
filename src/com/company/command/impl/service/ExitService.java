@@ -1,5 +1,6 @@
 package com.company.command.impl.service;
 
+import com.company.ExitException;
 import com.company.Menu;
 
 public class ExitService {
@@ -9,8 +10,7 @@ public class ExitService {
 
     public boolean service() {
         System.out.println("Конец программы");
-        Menu.setMenuIndicator(false);
-        return false;
+        throw new ExitException();
     }
 
     public static ExitService getInstance() {

@@ -27,7 +27,7 @@ public class AddToEnd extends Command {
     @Override
     public boolean setData() {
         System.out.println("Введите строку: ");
-        this.input = Helper.scanner.nextLine();
+        this.input = Helper.getScanner().nextLine();
         return true;
     }
 
